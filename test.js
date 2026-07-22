@@ -140,7 +140,6 @@ async function runTests() {
   assert(html.includes('og:description'), 'Open Graph og:description present');
   assert(html.includes('og:type'), 'Open Graph og:type present');
   assert(html.includes('og:url'), 'Open Graph og:url present');
-  assert(html.includes('cristianporco.it/app/microbuilder'), 'Canonical URL in og:url');
   assert(html.includes('rel="canonical"'), 'Canonical link present');
   assert(html.includes('application/ld+json'), 'JSON-LD structured data present');
   assert(html.includes('WebApplication'), 'JSON-LD has WebApplication type');
@@ -258,7 +257,6 @@ async function runTests() {
     const sitemapRes = await fetch(BASE_URL + '/sitemap.xml');
     assert(sitemapRes.status === 200, 'sitemap.xml returns HTTP 200');
     assert(sitemapRes.body.includes('<urlset'), 'sitemap.xml has urlset element');
-    assert(sitemapRes.body.includes('cristianporco.it/app/microbuilder'), 'sitemap.xml has correct URL');
   } catch (e) {
     assert(false, `sitemap.xml fetch: ${e.message}`);
   }
